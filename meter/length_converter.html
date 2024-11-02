@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+       *{
+        padding: 0PX;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+      .container{
+        
+        background-color:lightgreen;
+        align-items: center;
+        justify-content: center;
+        
+      }
+      .form{
+        padding: 60px;
+      }
+      .form form{
+        padding:40px 40px ;
+        background-color: azure;
+        border-radius: 10px;
+      }
+      .form label{
+        margin: 10px;
+      }
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <form>
+                <h1 class="text-center">Length Converter</h1>
+                <div class="col-6 offset-3">
+                    <label class="form-lable"><b>Meter</b></label>
+                    <input class="form-control" id="inputmeter" type="number" placeholder="Meter" oninput="meterconverter()">
+                    
+                    <label class="form-lable"><b>Kilometer</b></label>
+                    <input class="form-control" id="inputkilometer" type="number" placeholder="kilometer" oninput="kilometerconverter()">
+                   
+                    <label class="form-lable"><b>Comment</b></label>
+                    <textarea class="form-control" id="text" placeholder="Enter your comment" rows="5" maxlength="500"  style="resize: none;" onkeyup="return countwords();"></textarea>
+                    <p class="mt-3" style="float: right;">Total Characters Left: <span id="result">500</span></p>
+                    <br>
+                    <p class="mt-3"> Total Characters: <span id="characters"></span></p>
+                    <p class="mt-3"> Total Words: <span id="words"></span></p>
+                    <p class="mt-3"> Total Sentences: <span id="sentences"></span></p>
+                   
+                    <br>
+                  </div> 
+            </form>
+        </div>
+    </div>  
+    <script>
+        function meterconverter(){
+            var val= document.getElementById("inputmeter").value;
+            valNam= parseInt(val);
+            document.getElementById("inputkilometer").value=parseInt(valNam/1000);
+        }
+        function kilometerconverter(){
+            var val= document.getElementById("inputkilometer").value;
+            valNam= parseInt(val);
+            document.getElementById("inputmeter").value=parseInt(valNam*1000);
+        }
+        function countwords() {
+          var input = document.getElementById("text").value; //get input value from textarea
+          document.getElementById("characters").innerHTML = input.length; //input length is the total caracters
+
+          //for counnting words
+          var words=0;
+          splittedInput = input.split(' ');
+          for(var i=0; i<splittedInput.length; i++){
+            if(splittedInput[i] != ""){
+              words++;
+            }
+          }
+          document.getElementById("words").innerHTML = words;
+
+          var sentences=0;
+          otherSplittedInput = input.split('.');
+          for(var i=0; i<otherSplittedInput.length-1; i++){
+            if(otherSplittedInput[i] != ""){
+              sentences++;
+            }
+          }
+          document.getElementById("sentences").innerHTML = sentences;
+          var limit= 500;
+          document.getElementById("result").innerHTML = limit-input.length;
+          
+          }         
+    </script> 
+</body>
+</html>
