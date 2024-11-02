@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        *{
+            padding: 0PX;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        .container{
+        height: 100vh;
+        background-color:lightcyan;
+        align-items: center;
+        justify-content: center;
+            
+        }
+        .form{
+            padding: 60px;
+        }
+        .form form{
+            padding:40px 40px ;
+            background-color:lightpink;
+            border-radius: 10px;
+        }
+        .form label{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <form>
+                Select
+                <input type="checkbox" id="data" onclick="return checkme();">
+                <div class="col-6 offset-3" id="msg" >
+                    <label class="form-lable"><b>Name</b></label>
+                    <input class="form-control" type="text" placeholder="Enter your name">
+                    <label class="form-lable mt-3"><b>Qualification</b></label>
+                    <input class="form-control" type="text" placeholder="name">
+                </div>
+               
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("msg").style.display="none";
+        function checkme(){
+            var nam = document.getElementById("data");
+            var text = document.getElementById("msg");
+            if(nam.checked==true){
+              text.style.display="block";
+            }
+            else{
+                text.style.display= "none";
+            }
+        }    
+    </script>    
+</body>
+</html>
