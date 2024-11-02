@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+       *{
+        padding: 0PX;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+      .container{
+        height: 100vh;
+        background-color:lightgreen;
+        align-items: center;
+        justify-content: center;
+        
+      }
+      .form{
+        padding: 60px;
+      }
+      .form form{
+        padding:40px 40px ;
+        background-color: azure;
+        border-radius: 10px;
+      }
+      .form label{
+        margin: 10px;
+      }
+      .button{
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+  <div class="container">
+   <div class="form">
+    <form>
+      <h2  class="text-center"><b>Temperature Converter</b></h2>
+      <p  class="text-center">Type a value in the Fahrenheit field to convert the value to Celsius:</p>
+      <div class="col-6 offset-3">
+        <label class="form-lable">Fahrenheit</label>
+        <input id="inputFahrenheit" type="number" class="form-control"  placeholder="Fahrenheit" oninput="return farenhiteConverter()">
+      </div>
+
+      <div class="col-6 offset-3">
+        <label class="form-lable">Celcius</label>
+        <input id="inputcelcius" type="number" class="form-control"  placeholder="Celcius" oninput="return celciusConverter()">
+      </div>
+    </form>
+
+   </div>
+
+  </div>
+  <script>
+    function farenhiteConverter(){
+      var val=document.getElementById("inputFahrenheit").value;
+      valNum= parseInt(val);
+      document.getElementById("inputcelcius").value=parseInt((valNum-32)*(5/9));
+    }
+
+    function celciusConverter(){
+      var val=document.getElementById("inputcelcius").value;
+      valNum= parseInt(val);
+      document.getElementById("inputFahrenheit").value=parseInt((valNum+32)*(9/5));
+    }
+  </script> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
